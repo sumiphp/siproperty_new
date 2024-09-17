@@ -1411,8 +1411,8 @@ function get_propertylisttype($limit,$start,$type,$loc){
 
 
 
-function get_countpropertylisttype($type){
-
+function get_countpropertylisttype($type,$loc){
+    $this->db->where('pd.prjlocation',$loc);
     $this->db->where('pd.propertytype',$type);
     //$this->db->where('home_projects.project_status',0);
     $this->db->where('home_projects.status',1);

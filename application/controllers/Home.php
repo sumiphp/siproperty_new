@@ -507,7 +507,7 @@ public function propertylisttype(){
     $loc=$this->input->post('loc');
     $this->data['type']=$type;
     $this->data['loc']=$loc;
-	$config["total_rows"]=$this->frontend->get_countpropertylisttype($type);
+	$config["total_rows"]=$this->frontend->get_countpropertylisttype($type,$loc);
 	$config["per_page"] = 3;
 	$config["uri_segment"] = 3;
     $config['full_tag_open'] = '<ul class="pagination">';

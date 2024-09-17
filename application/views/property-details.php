@@ -397,7 +397,7 @@
 
 
         <!-- property-details -->
-        <section class="property-details property-details-one">
+        <section class="property-details property-details-one" id="divId" >
             <div class="auto-container">
                 <div class="top-details clearfix">
                     <div class="left-column pull-left clearfix">
@@ -435,8 +435,8 @@
                             </div>
                         </div>
                         <ul class="other-option pull-right clearfix">
-                            <li><a href="#"><i class="icon-37"></i></a></li>
-                            <li><a href="#" onclick="prin();" ><i class="icon-38"></i></a></li>
+                            <li><a href="https://api.whatsapp.com/send?text=YourShareTextHere"><i class="icon-37"></i></a></li>
+                            <li><a href="#" onclick="prin('divid');" ><i class="icon-38"></i></a></li>
                             <!--button id="shareButton">Share on WhatsApp</button-->
                             <!--li><a href="#"><i class="icon-12"></i></a></li>
                             <li><a href="#"><i class="icon-13"></i></a></li-->
@@ -1427,8 +1427,26 @@ shareButton.addEventListener('click', () => {
 
 
 
-function prin(){
-    window.print();
+function prin(divId){
+    //window.print();
+
+
+
+
+    var printContents = document.getElementById('divId').innerHTML;
+       var originalContents = document.body.innerHTML;
+       document.body.innerHTML = "<html><head><title></title></head><body>" + printContents + "</body>";
+       window.print();
+       document.body.innerHTML = originalContents;
+
+
+
+
+
+
+
+
+
 }
 
 

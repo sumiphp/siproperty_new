@@ -419,7 +419,7 @@ width:770px !important;
                                         <ul class="post-info clearfix">
                                             <li class="author-box">
                                                 <figure class="author-thumb"><img src="<?php echo base_url().'uploads/blog/'.$pd2->authorpicture;?>" alt="" ></figure>
-                                                <h5><a href="blog-details.html">Admin</a></h5>
+                                                <h5><a href="#">Admin</a></h5>
                                             </li>
                                             <li><?php //$date=Date('');
  $date=$pd2->date;

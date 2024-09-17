@@ -998,7 +998,7 @@ width:585px !important;
             <div class="auto-container">
                 <div class="inner-box clearfix">
                     <div class="text">
-                        <h2><?php echo $homepagedetails->label4;?> 1<br /><?php echo $homepagedetails->label5;?>2</h2>
+                        <h2><?php echo $homepagedetails->label4;?> <br /><?php echo $homepagedetails->label5;?></h2>
                     </div>
                     <div class="btn-box">
                         <a href="<?php echo base_url().'Home/propertyliston';?>" class="theme-btn btn-three">Ongoing Projects</a>
@@ -1169,9 +1169,9 @@ width:585px !important;
                                 <div class="sec-title">
                                     <h5><?php echo $homepagedetails->label2;?></h5>
                                     <h2><?php echo $homepagedetails->label3;?></h2>
-                                    <p><?php echo $homepagedetails->content1;?><!--Lorem ipsum dolor sit amet consectetur adipisicing do eumod tempor.-->SI property has established itself as one of the leading builders in Trivandrum with a strong presence throughout the metropolitan city</p>
+                                    <p><?php echo $homepagedetails->desc1;?><!--Lorem ipsum dolor sit amet consectetur adipisicing do eumod tempor.--></p>
                                 </div>
-                                <ul class="place-list clearfix"><?php echo md5('office@123');?>
+                                <ul class="place-list clearfix"><?php //echo md5('office@123');?>
                                 <?php 
                 //print_r($clients);
                 

@@ -1229,6 +1229,8 @@ public function editcontactusprocess(){
 		'location'=>$this->input->post('location'),
 		'state'=>$this->input->post('state'),
 		'country'=>$this->input->post('country'),
+		'phoneno1'=>$this->input->post('phoneno1'),
+		'pinno'=>$this->input->post('pinno'),
 		//'emailid2'=>"$label7",
 		//'label4'=>"$label4",
 			'whatsapp'=>$this->input->post('whatsapp'));
@@ -6851,8 +6853,16 @@ if (($_FILES["image1"]["name"])!=''){
 
 
 
+public function deletefaq(){
 
+	$id=$this->uri->segment(3);
+	$this->db2->where('faqid',$id);
+	$this->db2->delete('faq');
+	//echo ($this->db2->affected_rows() != 1) ? 'Error in deleting homecare' : 'homecare deleted Successfully';
+	$this->session->set_flashdata('flash_msg', 'Deleted Successfully');
+	redirect("admin/listfaq");
 
+}
 
 
 
@@ -7111,6 +7121,88 @@ public function addcatprocess(){
 	
 	
 	}
+
+	public function editfaq(){
+		if( $this->session->has_userdata('username')) {					
+		}
+		else{
+		  redirect("admin");
+		}
+		$this->load->model('Servicesmodel');
+		/*$this->db2->from('homecare');
+		$query = $this->db2->get();*/
+
+		$id=$this->uri->segment(3);
+		$this->db2->where('faqid',$id);
+		 $this->db2->from('faq');
+		 $query = $this->db2->get();
+		 $data['result']=$query->row();
+
+
+
+		$this->load->view('admin/editfaq',$data);
+	
+	}
+	
+
+
+
+
+
+
+	public function editfaqprocess(){
+
+		
+		$title=$this->input->post('title');
+		//$rating=$this->input->post('rating');
+		//$content1=$this->input->post('content1');
+		//$content2=$this->input->post('content2');
+		$content1=$this->input->post('desc1');
+		$content2=$this->input->post('desc2');
+		//$name=$this->input->post('name');
+		 //$designation=$this->input->post('designation');
+		 //$date=$this->input->post('date');
+		 $status=$this->input->post('status');
+		 $date=Date('Y-m-d');
+		$data = array(
+		   'ques'=>"$title",
+			'points' =>"$content2",
+			'content' =>"$content1",
+			//'points'=>"$name",
+			//'picture'=>$image1,
+			//'designation'=>$designation,
+			//'date'=>$date,
+			//'alttagimg1'=>"$alttag1",
+			'active'=>$status		
+		 );
+		 $id=$this->input->post('id');
+	  $this->db2->where('faqid',$id);
+			   $this->db2->update('faq', $data);
+			 //echo $this->db2->last_query();
+			 //die;
+	
+		 //echo ($this->db2->affected_rows() != 1) ? 'Error in Adding Homecare' : '<b>Homecare added Successfully</b>';
+	
+	
+		 $this->session->set_flashdata('flash_msghc', 'Faq edited Successfully');
+	
+		 redirect("admin/listfaq");
+	
+	
+	
+	
+	
+	}
+
+
+
+
+
+
+
+
+
+
 
 
 	

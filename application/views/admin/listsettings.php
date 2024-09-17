@@ -166,6 +166,7 @@ require ('conn.php');
 					<th>Twitter Link</th>
                     <th>You Tube Link</th><th>Insta</th>
 					<th>Linked Link</th>
+          <th>Pinterest</th>
           <th>Fav Icon</th>
           <th>Logo </th>
            
@@ -187,6 +188,7 @@ require ('conn.php');
                       <td><?php echo $row['YouTubeLink']; ?></td>
                       <td><?php echo $row['insta']; ?></td>
 					<td><?php echo $row['linkedlink']; ?></td>
+          <td><?php echo $row['pinterest']; ?></td>
           <td><img src="<?php echo base_url().'uploads/settings/'.$row['favicon'];?>" width="50" height="50" /></td>
           <td><img src="<?php echo base_url().'uploads/settings/'.$row['logo'];?>" width="50" height="50" /></td>
            

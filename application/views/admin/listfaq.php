@@ -161,6 +161,7 @@ require ('conn.php');
             <th>SL.No</th>
             <th>Questions</th>
             <th>Answers</th>
+            <th>Points</th>
             <th>Status</th>
             <!--th>Image</th-->
             <th>Action</th>
@@ -181,8 +182,9 @@ require ('conn.php');
         ?>
             <tr id="row<?php echo $res['id'] ?>">
             <td><?php echo $i;?></td>
-            <td><?php echo $res['name'] ?></td>
-           
+            <td><?php echo $res['ques'] ?></td>
+            <td><?php echo $res['content'] ?></td>
+            <td><?php echo $res['points'] ?></td>
             <td><?php if ($res['active']==1){ echo "Active"; } else if ($res['active']==0){ echo "InActive";}
             else{
                 //echo "Floor";
@@ -196,13 +198,13 @@ require ('conn.php');
             <img  style="height:8em; width:7em" src=<?php //echo base_url().'uploads/services/'.$res['picture']?> >
             </td-->
            <td>
-           <a href="<?php echo base_url().'admin/editservices/'.$res['serviceid'];?>"><button class="btn btn-success" >
+           <a href="<?php echo base_url().'admin/editfaq/'.$res['faqid'];?>"><button class="btn btn-success" >
                 Edit
             </button></a> 
             <!--button class="delete btn btn-danger"><a href="#" onclick="delrow(<?php //echo $res['id'];?>)">
                 Delete
             </button-->
-            <a onclick="return confirm('Are you sure you want to delete this item?');" href="<?php echo base_url().'admin/deleteservices/'.$res['serviceid'];?>">
+            <a onclick="return confirm('Are you sure you want to delete this item?');" href="<?php echo base_url().'admin/deletefaq/'.$res['faqid'];?>">
             <button class="btn btn-danger" >
                Delete
             </button></a>

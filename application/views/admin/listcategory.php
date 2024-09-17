@@ -183,7 +183,7 @@ require ('conn.php');
             <tr id="row<?php echo $res['id'] ?>">
             <td><?php echo $i;?></td>
             <td><?php echo $res['cat_name'] ?></td>
-            <td><?php if ($res['status']==0){
+            <td><?php if ($res['cat_status']==0){
               echo "InActive";
             }else{
               echo "Active";

@@ -164,7 +164,7 @@ require ('conn.php');
             <th>Name</th>
             <th>Subject</th>
             <th>Message</th>
-           
+            <th>Date</th>
            
             <th>Action</th>
           </tr>
@@ -189,7 +189,7 @@ require ('conn.php');
             <td><?php echo $res['name'] ?></td>
             <td><?php echo $res['subject'] ?></td>
             <td><?php echo $res['message'] ?></td>
-           
+            <td><?php echo $res['date'] ?></td>
            <td>
            <!--a href="<?php //echo base_url().'admin/editcarousel/'.$res['newsletterid'];?>"><button class="btn btn-success" >
                 Edit

@@ -454,8 +454,8 @@ width:440px !important;
         <section class="feature-style-three centred pb-110">
             <div class="auto-container">
                 <div class="sec-title">
-                    <h5>Our Services</h5>
-                    <h2>Property Services</h2>
+                    <h5><?php echo $aboutus->label2;?></h5>
+                    <h2><?php echo $aboutus->label3;?></h2>
                 </div>
                 <div class="three-item-carousel owl-carousel owl-theme owl-nav-none dots-style-one">
 
@@ -539,7 +539,7 @@ width:440px !important;
             <div class="auto-container">
                 <div class="inner-box clearfix">
                     <div class="text">
-                        <h2>LOOKING FOR A HOME IN TRIVANDRUM <br />Explore the best flats in Trivandrum</h2>
+                        <h2><?php echo $aboutus->label4;?> <br /><?php echo $aboutus->label5;?></h2>
                     </div>
                     <div class="btn-box">
                         <a href="<?php echo base_url().'Home/propertylist';?>" class="theme-btn btn-three">Ongoing Projects</a>
@@ -654,8 +654,8 @@ width:440px !important;
         <section class="testimonial-style-four sec-pad centred">
             <div class="auto-container">
                 <div class="sec-title">
-                    <h5>Testimonials</h5>
-                    <h2>What They Say About Us</h2>
+                    <h5><?php echo $aboutus->label6;?></h5>
+                    <h2><?php echo $aboutus->label7;?></h2>
                     <p><?php echo $aboutus->content4;?> <br /><?php echo $aboutus->content5;?></p>
                 </div>
 

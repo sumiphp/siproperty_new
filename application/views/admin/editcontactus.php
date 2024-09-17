@@ -165,19 +165,39 @@
   //foreach ($result as $re){ ?>
   <div class="p-x-xs">
     <div class="form-group row">
-      <label class="col-sm-2 form-control-label">Emailid</label>
+      <label class="col-sm-2 form-control-label">Emailid1</label>
       <div class="col-sm-6">
         <input type="text" class="form-control rounded" name='emailid' id='emailid' required value="<?php echo $re->emailid;?>">
       </div>
     </div>
-
-   
     <div class="form-group row">
-      <label class="col-sm-2 form-control-label">Phoneno</label>
+      <label class="col-sm-2 form-control-label">Emailid2</label>
+      <div class="col-sm-6">
+        <input type="text"  class="form-control rounded" placeholder="" name='emailid2' id='emailid2' required value="<?php echo $re->emailid2;?>">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 form-control-label">Phoneno1</label>
       <div class="col-sm-6">
         <textarea class="form-control" rows="5" name='phoneno' id='phoneno' required ><?php echo $re->phoneno;?></textarea>
       </div>
     </div>
+
+
+    <div class="form-group row">
+      <label class="col-sm-2 form-control-label">Phoneno2</label>
+      <div class="col-sm-6">
+        <textarea class="form-control" rows="5" name='phoneno1' id='phoneno1' required ><?php echo $re->phoneno1;?></textarea>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-sm-2 form-control-label">Whatsapp</label>
+      <div class="col-sm-6">
+        <input type="text"  class="form-control rounded" placeholder="" name='whatsapp' id='whatsapp' required value="<?php echo $re->whatsapp;?>">
+      </div>
+    </div>
+    
 
     <div class="form-group row">
       <label class="col-sm-2 form-control-label">location</label>
@@ -201,29 +221,18 @@
       </div>
     </div>
     
-    <div class="form-group row">
-      <label class="col-sm-2 form-control-label">Emailid2</label>
-      <div class="col-sm-6">
-        <input type="text"  class="form-control rounded" placeholder="" name='emailid2' id='emailid2' required value="<?php echo $re->emailid2;?>">
-      </div>
-    </div>
+ 
     
 
+   
+
     <div class="form-group row">
-      <label class="col-sm-2 form-control-label">Whatsapp</label>
+      <label class="col-sm-2 form-control-label">Pin no</label>
       <div class="col-sm-6">
-        <input type="text"  class="form-control rounded" placeholder="" name='whatsapp' id='whatsapp' required value="<?php echo $re->whatsapp;?>">
+        <input type="text"  class="form-control rounded" placeholder="" name='pinno' id='pinno' required value="<?php echo $re->pinno;?>">
       </div>
     </div>
-    
-
     <!--div class="form-group row">
-      <label class="col-sm-2 form-control-label">Label5</label>
-      <div class="col-sm-6">
-        <input type="text"  class="form-control rounded" placeholder="" name='label5' id='label5' required value="<?php //echo $re->label5;?>">
-      </div>
-    </div>
-    <div class="form-group row">
       <label class="col-sm-2 form-control-label">Label6</label>
       <div class="col-sm-6">
         <input type="text"  class="form-control rounded" placeholder="" name='label6' id='label6' required value="<?php //echo $re->label6;?>">

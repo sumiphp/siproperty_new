@@ -95,7 +95,7 @@
                 <li class="nav-item dropdown">
                   <a class="nav-link" href="<?php echo base_url().'Admin/dashboard'?>">
                     <i class="fa fa-fw fa-arrow-left text-muted"></i>
-                    <span>Edit</span>
+                    <span>Add</span>
                   </a>
                   <div ui-include="<?php echo base_url().'assets/views/blocks/dropdown.new.html'?>"></div>
                 </li>
@@ -146,20 +146,27 @@
 
 <!-- ############ PAGE START-->
 <div class="padding">
-  <h6>Services</h6>
+  <h6>Faq</h6>
   <p>
   Fill out the required details.
   </p>
   <span id="msg" class="text-success"></span><br>
-  <form id="edit" role="form" class="mt-2" method="post" enctype="multipart/form-data">
+  <!--form id="add" role="form" class="mt-2" method="post" enctype="multipart/form-data"-->
+  <?php if ($this->session->flashdata('flash_msghc')): ?>
+            <div class="alert alert-success">
+                <?php echo $this->session->flashdata('flash_msghc'); ?>
+            </div>
+        <?php endif; ?>
+
+  <form action="<?= base_url('admin/editfaqprocess'); ?>" method="post" enctype="multipart/form-data">
   <div class="p-x-xs">
     <div class="form-group row">
-      <label class="col-sm-2 form-control-label">Title</label>
+      <label class="col-sm-2 form-control-label">Question</label>
       <div class="col-sm-6">
-        <input type="text" class="form-control rounded" name='title' id='title' required value="<?php echo $result->name;?>">
+        <input type="text" class="form-control rounded" name='title' id='title' required value="<?php echo $result->ques;?>">
       </div>
     </div>
-
+    <input type="hidden" class="form-control" id="id" name="id" value="<?php echo $result->faqid;?>" placeholder="Enter Menu Name" required>
     <!--div class="form-group row">
       <label class="col-sm-2 form-control-label">Name</label>
       <div class="col-sm-6">
@@ -175,18 +182,18 @@
       </div>
     </div-->
     <div class="form-group row">
-      <label class="col-sm-2 form-control-label">Descripition</label>
+      <label class="col-sm-2 form-control-label"> Answer</label>
       <div class="col-sm-6">
-        <textarea class="form-control" rows="5" name='desc1' id='desc1' required ><?php echo $result->servicedesc;?></textarea>
+        <textarea class="form-control" rows="5" name='desc1' id='desc1' required ><?php echo $result->content;?></textarea>
       </div>
     </div>
 
-    <!--div class="form-group row">
-      <label class="col-sm-2 form-control-label">Services-(Please seperate by comma)</label>
+    <div class="form-group row">
+      <label class="col-sm-2 form-control-label">Points-(Please seperate by comma)</label>
       <div class="col-sm-6">
-        <textarea class="form-control" rows="5" name='desc2' id='desc2' required ><?php echo $result->content;?></textarea>
+        <textarea class="form-control" rows="5" name='desc2' id='desc2' required ><?php echo $result->points;?></textarea>
       </div>
-    </div-->
+    </div>
 
 
     <!--div class="form-group row">
@@ -231,23 +238,22 @@
         <div class="form-group row">
       <label class="col-sm-2 form-control-label">Status</label>
       <div class="col-sm-6">
-       <select class="form-control rounded" id="status" required>
+       <select class="form-control rounded" id="status" name="status" required >
             <option value="">Select</option>
             <option value="1" <?php if ($result->active==1){?> selected <?php } ?>>Active </option>
             <option value="0" <?php if ($result->active==0){?> selected <?php } ?>>Not Active</option>          
         </select>        
         </div>      
         </div>
-        <input type="hidden" class="form-control" id="id" name="id" value="<?php echo $result->serviceid;?>" placeholder="Enter Menu Name" required>
+        
                  
      
         <!--div class="form-group row">
         <label class="col-sm-2 form-control-label">Image</label>
       
         <div class="col-sm-6">
-        <input type="file"  class="form-control" id="image1" name="image1">
+        <input type="file"  class="form-control" id="image1" name="image1" required>
             
-            <img class="mt-3" src="<?php //echo base_url().'uploads/homecare/'.$result->picture;?>" width="100" height="100" />
         </div-->
     </div>
 
@@ -325,23 +331,23 @@
 
 
 <script>
-$('#edit').on('submit', function (e) {
+$('#add').on('submit', function (e) {
     e.preventDefault();
     // alert("add");
-       //var file_data1 = $('#image1').prop('files')[0];
+       var file_data1 = $('#image1').prop('files')[0];
        
         var title=$('#title').val();
         var status=$("#status").val();                
-        var id=$('#id').val();
+        //var name=$('#name').val();
         //var designation=$('#designation').val();
         var desc1=$('#desc1').val();
-        //var desc2=$('#desc2').val();
+        var desc2=$('#desc2').val();
         var form_data = new FormData();
-        //form_data.append('image1', file_data1);
+        form_data.append('image1', file_data1);
         form_data.append('title',title);
-        form_data.append('id',id);
+       
         form_data.append('content1',desc1);
-        //form_data.append('content2',desc2);
+        form_data.append('content2',desc2);
         //form_data.append('name',name);
         //form_data.append('designation',designation);
         form_data.append('status',status);
@@ -349,7 +355,7 @@ $('#edit').on('submit', function (e) {
       
        
         $.ajax({
-            url: "<?php echo base_url().'Admin/editserprocess';?>", // point to server-side controller method
+            url: "<?php echo base_url().'Admin/addhcprocess';?>", // point to server-side controller method
             dataType: 'text', // what to expect back from the server
             cache: false,
             contentType: false,
@@ -366,11 +372,9 @@ $('#edit').on('submit', function (e) {
     });
     
                 $('#msg').html(response); // display success response from the server
-               window.location.href="<?php echo base_url().'Admin/listservices';?>";
             },
             error: function (response) {
                 $('#msg').html(response); // display error response from the server
-                window.location.href="<?php echo base_url().'Admin/listservices';?>";
             }
         });
     });
