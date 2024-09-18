@@ -181,16 +181,16 @@
 
 
 
-  <div class="form-group row">
+  <!--div class="form-group row">
       <label class="col-sm-2 form-control-label">Project Status</label>
       <div class="col-sm-6">
        <select class="form-control rounded" id="prjstatus" name="prjstatus" required>
             <option value="">Select</option>
             <option value="0">Ongoing </option>
             <option value="1">Completed</option>           
-        </select><!-- /btn-group -->        
+        </select>       
         </div>      
-        </div>
+        </div-->
 
 
 
@@ -298,16 +298,16 @@
         </select><!-- /btn-group -->        
         </div>      
         </div>
-        <div class="form-group row">
+        <!--div class="form-group row">
       <label class="col-sm-2 form-control-label">Show in Carousel</label>
       <div class="col-sm-6">
        <select class="form-control rounded" id="show" name="show" required>
             <option value="">select</option>
             <option value="1">Yes </option>
             <option value="0">No</option>           
-        </select><!-- /btn-group -->        
+        </select>       
         </div>      
-        </div>
+        </div-->
                  
      
         <div class="form-group row">

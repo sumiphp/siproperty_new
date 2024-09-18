@@ -74,7 +74,7 @@ class Home extends CI_Controller {
 
 
         $this->data['ser']=0;
-
+        $this->data['services']=$this->frontend->get_servicesactive();
 
 		$this->load->view('index',$this->data);
 	}
@@ -680,6 +680,49 @@ $config['num_tag_close'] = '</li>';
 
 
 
+public function division(){
+    $blog_slug='';
+        $this->data['contactus'] = $this->frontend->getcontactus($blog_slug);
+
+
+
+        $config = array();
+        $config["base_url"] = base_url() . "Home/division";
+        //$config["total_rows"] = $this->sm->get_countsolutions();
+        $config["total_rows"]=$this->frontend->get_countblogs();
+        $config["per_page"] = 10;
+        $config["uri_segment"] = 3;
+        $config['full_tag_open'] = '<ul class="pagination">';
+    $config['full_tag_close'] = '</ul>';
+    $config['attributes'] = ['class' => 'page-link'];
+    $config['first_link'] = false;
+    $config['last_link'] = false;
+    $config['first_tag_open'] = '<li class="page-item">';
+    $config['first_tag_close'] = '</li>';
+    $config['prev_link'] = '&laquo';
+    $config['prev_tag_open'] = '<li class="page-item">';
+    $config['prev_tag_close'] = '</li>';
+    $config['next_link'] = '&raquo';
+    $config['next_tag_open'] = '<li class="page-item">';
+    $config['next_tag_close'] = '</li>';
+    $config['last_tag_open'] = '<li class="page-item">';
+    $config['last_tag_close'] = '</li>';
+    $config['cur_tag_open'] = '<li class="page-item active"><a href="#" class="page-link">';
+    $config['cur_tag_close'] = '<span class="sr-only">(current)</span></a></li>';
+    $config['num_tag_open'] = '<li class="page-item">';
+    $config['num_tag_close'] = '</li>';
+        $this->pagination->initialize($config);
+        $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+        $this->data["links"] = $this->pagination->create_links();
+ $this->data['blog'] = $this->frontend->get_Blogs($config["per_page"],$page);
+        //$this->data['blog'] = $this->frontend->getBlogs($blog_slug);
+        //print_r($this->data['blog']);
+        //die;
+        $this->data['homecare'] = $this->frontend->gethomecare($blog_slug);
+        $this->data['settings']= $this->frontend->settings();
+        $this->data['homepagedetails2']= $this->frontend->homepagedetails2();
+    $this->load->view('division.php',$this->data);
+}
 
 
 

@@ -990,10 +990,7 @@ width:585px !important;
                 <div class="more-btn centred"><a href="<?php echo base_url().'Home/propertylist';?>" class="theme-btn btn-one">View All Listing</a></div>
             </div>
         </section>
-        <!-- feature-style-two end -->
-
-
-        <!-- cta-section -->
+        
         <section class="cta-section alternate-2 centred" style="background-image: url(<?php echo base_url().'siproperty/assets/images/background/cta-1.jpg';?>);">
             <div class="auto-container">
                 <div class="inner-box clearfix">
@@ -1007,17 +1004,12 @@ width:585px !important;
                 </div>
             </div>
         </section>
-        <!-- cta-section end -->
+        
 
 
-        <!-- deals-style-two -->
-       
-        <!-- deals-style-two end -->
-
-
-        <!-- chooseus-section -->
-        <section class="chooseus-section alternate-2 bg-color-1">
-            <div class="auto-container">
+        <!--section class="chooseus-section alternate-2 bg-color-1">
+            <div class="auto-container  ">
+         
                 <div class="upper-box clearfix">
                     <div class="sec-title">
                         <h5><?php echo $homepagedetails2->label9;?></h5>
@@ -1030,38 +1022,26 @@ width:585px !important;
                 <div class="lower-box">
                     <div class="row clearfix">
 
-                        <?php foreach($chooseus as $set){?>
+                        <?php //foreach($chooseus as $set){?>
                         <div class="col-lg-4 col-md-6 col-sm-12 chooseus-block">
                             <div class="chooseus-block-one">
                                 <div class="inner-box">
                                     <div class="icon-box"><i class="icon-19"></i></div>
-                                    <h4><?php echo $set['caption'];?></h4>
-                                    <p><?php echo $set['shortdesc'];?></p>
+                                    <h4><?php //echo $set['caption'];?></h4>
+                                    <p><?php //echo $set['shortdesc'];?></p>
                                 </div>
                             </div>
-                        </div><?php } ?>
-                        <!--div class="col-lg-4 col-md-6 col-sm-12 chooseus-block">
-                            <div class="chooseus-block-one">
-                                <div class="inner-box">
-                                    <div class="icon-box"><i class="icon-26"></i></div>
-                                    <h4>Best Local Agents</h4>
-                                    <p>Lorem ipsum dolor sit consectetur sed eiusm tempor.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-12 chooseus-block">
-                            <div class="chooseus-block-one">
-                                <div class="inner-box">
-                                    <div class="icon-box"><i class="icon-21"></i></div>
-                                    <h4>Personalized Service</h4>
-                                    <p>Lorem ipsum dolor sit consectetur sed eiusm tempor.</p>
-                                </div>
-                            </div>
-                        </div-->
+                        </div><?php //} ?>
+                       
+                       
                     </div>
                 </div>
             </div>
-        </section>
+        </section-->
+
+
+        
+
         <!-- chooseus-section end -->
 
 
@@ -1144,57 +1124,39 @@ width:585px !important;
         <!-- testimonial-style-two -->
 
 
-
-        
-
-
-
-
-
-
-
-
-
-
-        
-
-
         <!-- place-style-two -->
-        <section class="place-style-two sec-pad">
+        <!--section class="place-style-two sec-pad">
             <div class="auto-container">
                 <div class="row clearfix">
                     <div class="col-lg-6 col-md-12 col-sm-12 content-column">
                         <div class="content_block_2">
                             <div class="content-box">
                                 <div class="sec-title">
-                                    <h5><?php echo $homepagedetails->label2;?></h5>
-                                    <h2><?php echo $homepagedetails->label3;?></h2>
-                                    <p><?php echo $homepagedetails->desc1;?><!--Lorem ipsum dolor sit amet consectetur adipisicing do eumod tempor.--></p>
+                                    <h5><?php //echo $homepagedetails->label2;?></h5>
+                                    <h2><?php //echo $homepagedetails->label3;?></h2>
+                                    <p><?php //echo $homepagedetails->desc1;?></p>
                                 </div>
-                                <ul class="place-list clearfix"><?php //echo md5('office@123');?>
+                                <ul class="place-list clearfix">
                                 <?php 
-                //print_r($clients);
                 
-                foreach ($places as $pl){?>
-                                    <li><a href="<?php echo base_url().'Home/propertylist';?>"><h5><?php echo $pl['prjlocation'];?></h5><span>
+                
+                //foreach ($places as $pl){?>
+                                    <li><a href="<?php //echo base_url().'Home/propertylist';?>"><h5><?php echo $pl['prjlocation'];?></h5><span>
                                         
                                     <?php  
-                                    $this->db->where('prjlocation',$pl['prjlocation']);
-                                    $this->db->select('*');
-    $this->db->from('projectdetails');
-    $query = $this->db->get();
-    $rowcount = $query->num_rows();?>
+                                    //$this->db->where('prjlocation',$pl['prjlocation']);
+                                    //$this->db->select('*');
+    //$this->db->from('projectdetails');
+    //$query = $this->db->get();
+    //$rowcount = $query->num_rows();?>
                                     
                                     
-                                    (<?php echo $rowcount;?>)</span></a></li>
-                                    <?php } ?>
-                                    <!--li><a href="categories.html"><h5>Bangladesh</h5><span>(13)</span></a></li>
-                                    <li><a href="categories.html"><h5>Belgium</h5><span>(05)</span></a></li>
-                                    <li><a href="categories.html"><h5>Brazil</h5><span>(04)</span></a></li>
-                                    <li><a href="categories.html"><h5>California</h5><span>(07)</span></a></li-->
+                                    (<?php //echo $rowcount;?>)</span></a></li>
+                                    <?php //} ?>
+                                    
                                 </ul>
                                 <div class="btn-box">
-                                    <a href="<?php echo base_url().'Home/propertylist';?>" class="theme-btn btn-one">View More</a>
+                                    <a href="<?php //echo base_url().'Home/propertylist';?>" class="theme-btn btn-one">View More</a>
                                 </div>
                             </div>
                         </div>
@@ -1202,14 +1164,102 @@ width:585px !important;
                     <div class="col-lg-6 col-md-12 col-sm-12 image-column">
                         <div class="image_block_1">
                             <div class="image-box">
-                                <figure class="image image-1 paroller"><img class="imgpl" src="<?php echo base_url().'siproperty/assets/images/resource/place-5.jpg';?>" alt=""></figure>
-                                <figure class="image image-2 paroller-2"><img  class="imgp2" src="<?php echo base_url().'siproperty/assets/images/resource/place-6.jpg';?>" alt=""></figure>
+                                <figure class="image image-1 paroller"><img class="imgpl" src="<?php //echo base_url().'siproperty/assets/images/resource/place-5.jpg';?>" alt=""></figure>
+                                <figure class="image image-2 paroller-2"><img  class="imgp2" src="<?php //echo base_url().'siproperty/assets/images/resource/place-6.jpg';?>" alt=""></figure>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </section-->
+
+
+
+        <section class="feature-style-three centred pb-110">
+            <div class="auto-container">
+                <div class="sec-title">
+                    <h5>Our Services</h5>
+                    <h2>Property Services</h2>
+                </div>
+                <div class="three-item-carousel owl-carousel owl-theme owl-nav-none dots-style-one">
+                <?php 
+                //print_r($testimonial);
+                
+                foreach ($services as $ser){?>
+                    <div class="feature-block-two">
+                        <div class="inner-box">
+                            <div class="icon-box"><i class="icon-1"></i></div>
+                            <h4><?php echo $ser['name'];?></h4>
+                            <p><?php echo $ser['servicedesc'];?></p>
+                        </div>
+                    </div>
+                    <?php } ?>
+                    <!--div class="feature-block-two">
+                        <div class="inner-box">
+                            <div class="icon-box"><i class="icon-26"></i></div>
+                            <h4>Best Local Agents</h4>
+                            <p>Lorem ipsum dolor sit consectetur sed eiusm tempor incididunt dolore magna.</p>
+                        </div>
+                    </div>
+                    <div class="feature-block-two">
+                        <div class="inner-box">
+                            <div class="icon-box"><i class="icon-21"></i></div>
+                            <h4>Personalized Service</h4>
+                            <p>Lorem ipsum dolor sit consectetur sed eiusm tempor incididunt dolore magna.</p>
+                        </div>
+                    </div>
+                    <div class="feature-block-two">
+                        <div class="inner-box">
+                            <div class="icon-box"><i class="icon-1"></i></div>
+                            <h4>Excellent Reputation</h4>
+                            <p>Lorem ipsum dolor sit consectetur sed eiusm tempor incididunt dolore magna.</p>
+                        </div>
+                    </div>
+                    <div class="feature-block-two">
+                        <div class="inner-box">
+                            <div class="icon-box"><i class="icon-26"></i></div>
+                            <h4>Best Local Agents</h4>
+                            <p>Lorem ipsum dolor sit consectetur sed eiusm tempor incididunt dolore magna.</p>
+                        </div>
+                    </div>
+                    <div class="feature-block-two">
+                        <div class="inner-box">
+                            <div class="icon-box"><i class="icon-21"></i></div>
+                            <h4>Personalized Service</h4>
+                            <p>Lorem ipsum dolor sit consectetur sed eiusm tempor incididunt dolore magna.</p>
+                        </div>
+                    </div>
+                    <div class="feature-block-two">
+                        <div class="inner-box">
+                            <div class="icon-box"><i class="icon-1"></i></div>
+                            <h4>Excellent Reputation</h4>
+                            <p>Lorem ipsum dolor sit consectetur sed eiusm tempor incididunt dolore magna.</p>
+                        </div>
+                    </div>
+                    <div class="feature-block-two">
+                        <div class="inner-box">
+                            <div class="icon-box"><i class="icon-26"></i></div>
+                            <h4>Best Local Agents</h4>
+                            <p>Lorem ipsum dolor sit consectetur sed eiusm tempor incididunt dolore magna.</p>
+                        </div>
+                    </div>
+                    <div class="feature-block-two">
+                        <div class="inner-box">
+                            <div class="icon-box"><i class="icon-21"></i></div>
+                            <h4>Personalized Service</h4>
+                            <p>Lorem ipsum dolor sit consectetur sed eiusm tempor incididunt dolore magna.</p>
+                        </div>
+                    </div-->
+                </div>
+            </div>
         </section>
+
+
+
+
+
+
+
         <!-- place-style-two end -->
 
 
@@ -1264,7 +1314,7 @@ width:585px !important;
                                         <h3>“<?php echo $test['content'];?>”</h3>
                                     </div>
                                     <div class="author-info">
-                                        <figure class="author-thumb"><img src="<?php echo base_url().'siproperty/assets/images/resource/testimonial-1.jpg';?>" alt=""></figure>
+                                        <figure class="author-thumb"><img src="<?php echo base_url().'uploads/testimonial/'.$test['picture'];?>" alt=""></figure>
                                         <h4><?php echo $test['name'];?></h4>
                                         <span class="designation"><?php echo $test['designation'];?></span>
                                     </div>
@@ -1307,8 +1357,7 @@ width:585px !important;
 
 
 
-
-
+        
 
 
 
@@ -1448,6 +1497,80 @@ width:585px !important;
                 </div>
             </div>
         </section>
+
+
+
+
+        <section class="chooseus-section" >
+            <div class="auto-container">
+                <div class="inner-container bg-color-2" style="margin-top:5px;margin-bottom:35px !important;">
+                    <div class="upper-box clearfix">
+                        <div class="sec-title light">
+                            <h5><?php echo $homepagedetails2->label9;?></h5>
+                            <h2><?php echo $homepagedetails2->label10;?></h2>
+                        </div>
+                        <div class="btn-box">
+                            <a href="<?php echo base_url().'Home/categories';?>" class="theme-btn btn-one">All Categories</a>
+                        </div>
+                    </div>
+                    <div class="lower-box">
+                        <div class="row clearfix">
+                        <?php 
+                        $i=0;
+                        foreach($chooseus as $set){
+                            if ($i <3){
+                            ?>
+                            <div class="col-lg-4 col-md-6 col-sm-12 chooseus-block">
+                                <div class="chooseus-block-one">
+                                    <div class="inner-box">
+                                        <div class="icon-box"><i class="icon-19"></i></div>
+                                        <h4><?php echo $set['caption'];?></h4>
+                                        <p><?php echo $set['shortdesc'];?></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <?php 
+                        $i++;
+                            }
+                        
+                        } ?>
+                            <!--div class="col-lg-4 col-md-6 col-sm-12 chooseus-block">
+                                <div class="chooseus-block-one">
+                                    <div class="inner-box">
+                                        <div class="icon-box"><i class="icon-26"></i></div>
+                                        <h4>Best Local Agents</h4>
+                                        <p>Lorem ipsum dolor sit consectetur sed eiusm tempor.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-12 chooseus-block">
+                                <div class="chooseus-block-one">
+                                    <div class="inner-box">
+                                        <div class="icon-box"><i class="icon-21"></i></div>
+                                        <h4>Personalized Service</h4>
+                                        <p>Lorem ipsum dolor sit consectetur sed eiusm tempor.</p>
+                                    </div>
+                                </div>
+                            </div-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
        
 

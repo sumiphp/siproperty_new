@@ -4125,7 +4125,7 @@ public function addprojectprocess(){
 		'product_picture'=>$image1,
 		'status'=> $this->input->post('status'),
 		'project_status'=> $this->input->post('prjstatus'),
-		'addinside'=> $this->input->post('show'),
+		//'addinside'=> $this->input->post('show'),
 		'propertyid'=> $this->input->post('propertyid'),
 		'rooms'=> $this->input->post('rooms'),
 		'garagesize'=> $this->input->post('garagesize'),

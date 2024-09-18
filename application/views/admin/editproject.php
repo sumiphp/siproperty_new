@@ -301,16 +301,16 @@
         </div>
 
 
-        <div class="form-group row">
+        <!--div class="form-group row">
       <label class="col-sm-2 form-control-label">Show in Carousel</label>
       <div class="col-sm-6">
        <select class="form-control rounded" id="show" name="show" required>
             <option value="">select</option>
-            <option value="1" <?php if ($ceo['status']==1){?> selected <?php } ?>>Yes </option>
-            <option value="0" <?php if ($ceo['status']==0){?> selected <?php } ?>>No</option>           
-        </select><!-- /btn-group -->        
+            <option value="1" <?php //if ($ceo['status']==1){?> selected <?php //} ?>>Yes </option>
+            <option value="0" <?php //if ($ceo['status']==0){?> selected <?php //} ?>>No</option>           
+        </select>      
         </div>      
-        </div>
+        </div-->
 
         <div class="form-group row">
         <label class="col-sm-2 form-control-label">File input</label>

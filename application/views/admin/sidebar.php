@@ -5,7 +5,7 @@
         <!-- brand -->
         <a class="navbar-brand">
         	<div ui-include="<?php echo base_url().'assets/images/logo.svg'?>"></div>
-        	<img src="<?php echo base_url().'assets/images/logo1.png'?>" alt="." class="hide" />
+        	<img src="<?php echo base_url().'assets/images/logo1.png'?>" alt="." class="hide1" />
         	<span class="hidden-folded inline">SI PROPERTY</span>
         </a>
         <!-- / brand -->

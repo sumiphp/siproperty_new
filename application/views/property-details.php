@@ -435,7 +435,7 @@
                             </div>
                         </div>
                         <ul class="other-option pull-right clearfix">
-                            <li><a href="https://api.whatsapp.com/send?text=YourShareTextHere"><i class="icon-37"></i></a></li>
+                            <li><a href="https://api.whatsapp.com/send?text=<?php echo $pd->project_descripition;?>"><i class="icon-37"></i></a></li>
                             <li><a href="#" onclick="prin('divid');" ><i class="icon-38"></i></a></li>
                             <!--button id="shareButton">Share on WhatsApp</button-->
                             <!--li><a href="#"><i class="icon-12"></i></a></li>
