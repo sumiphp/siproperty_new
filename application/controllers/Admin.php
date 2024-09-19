@@ -141,6 +141,24 @@ class Admin extends CI_Controller {
 	
 	}
 
+	function adddivision(){
+		if( $this->session->has_userdata('username')) {					
+		}
+		else{
+		  redirect("Admin");
+		}
+		$this->load->model('Servicesmodel');
+		$this->db2->from('division');
+		$query = $this->db2->get();
+		$data['result']=$query->result_array();
+		/*$data['contactus']=$this->sm->get_contactus();
+		$data['newsletter']=$this->sm->get_newsletter();
+		$data['siteinf']=$this->sm->get_siteinf();*/
+		$this->load->view('admin/adddivision',$data);
+	
+	
+	}
+
 
 
 
@@ -690,7 +708,25 @@ function editblog(){
 
 }
 
+function editdivision(){
+	if( $this->session->has_userdata('username')) {					
+	}
+	else{
+	  redirect("Admin");
+	}
+	$id=$this->uri->segment(3);
+	$this->load->model('Servicesmodel');
+	$this->db2->where('id',$id);
+	$this->db2->from('division');
+    $query = $this->db2->get();
+    $data['result']=$query->row(); 
+	//$data['contactus']=$this->sm->get_contactus();
+	//$data['newsletter']=$this->sm->get_newsletter();
+	//$data['siteinf']=$this->sm->get_siteinf();
+	$this->load->view('admin/editdivision',$data);
 
+
+}
 
 
 
@@ -5103,6 +5139,173 @@ public function editblogprocess(){
 
 
 
+public function editdivprocess(){
+
+	/*$ext=pathinfo($_FILES["image1"]["name"], PATHINFO_EXTENSION);
+	$new_name = time().'blog'.'.'.$ext;
+	$config['file_name'] = $new_name;
+
+	
+	$config['file_name'] = $new_name;
+	$config['upload_path'] = 'uploads/blog';
+	$config['allowed_types'] = 'gif|jpg|png|jpeg';	
+	
+	$this->load->library('upload', $config);
+	$this->upload->initialize($config);
+	if (isset($_FILES['image1']['name'])) {
+		if (0 < $_FILES['image1']['error']) {
+			echo 'Error during file upload' . $_FILES['image1']['error'];
+		} else {
+			if (file_exists('uploads/blog' . $_FILES['image1']['name'])) {
+				echo 'File already exists : uploads/blog' . $_FILES['image1']['name'];
+			} else {
+				
+				if (!$this->upload->do_upload('image1')) {
+					echo $this->upload->display_errors();
+				} else {
+					
+				}
+			}
+		}
+	} else {
+		echo 'Please choose a file';
+	}
+
+	
+	$image1=$new_name;*/
+
+	$id=$this->input->post('id');
+	$this->db2->where('id',$id);
+	$this->db2->select('*');
+    $this->db2->from('division');
+    $query = $this->db2->get();
+   $imgdetails=$query->row();
+   $image11=$imgdetails->picture;
+   $image22=$imgdetails->picture2;
+
+   $file_ext = pathinfo($_FILES["image1"]["name"],PATHINFO_EXTENSION);
+   //$file_name=$_FILES['image1']['name'];
+   //$newfile_name= preg_replace('/[^A-Za-z0-9]/', "", $file_name);
+   //$//ext=pathinfo($_FILES["file"]["name"], PATHINFO_EXTENSION);
+   $new_name = time().'division'.'.'.$file_ext;
+   $config['file_name'] = $new_name;
+   $config['upload_path'] = 'uploads/division';
+   $config['allowed_types'] = 'gif|jpg|png|jpeg';	
+   //$config['max_size'] = '1024'; //1 MB
+   $this->load->library('upload', $config);
+   $this->upload->initialize($config);
+   if (isset($_FILES['image1']['name'])) {
+	   if (0 < $_FILES['image1']['error']) {
+		   echo 'Error during file upload' . $_FILES['image1']['error'];
+	   } else {
+		   if (file_exists('uploads/division/'.$new_name)) {
+			   //echo 'File already exists : uploads/contactus/'.$new_name;
+			   $image1=$image11;
+		   } else {
+			   
+			   if (!$this->upload->do_upload('image1')) {
+				   //echo $this->upload->display_errors();
+			   } else {
+				   //echo 'File successfully uploaded : uploads/' . $_FILES['file']['name'];
+				   $image1=$image11;
+			   }
+			   $image1=$image11;
+
+		   }
+	   }
+	   $image1=$new_name;
+
+   } else {
+	   //echo 'Please choose a file';
+	   $image1=$image11;
+
+   }
+
+
+
+   $file_ext2 = pathinfo($_FILES["image2"]["name"],PATHINFO_EXTENSION);
+   //$file_name=$_FILES['image1']['name'];
+   //$newfile_name= preg_replace('/[^A-Za-z0-9]/', "", $file_name);
+   //$//ext=pathinfo($_FILES["file"]["name"], PATHINFO_EXTENSION);
+   $new_name2 = time().'division'.'.'.$file_ext2;
+   $config['file_name'] = $new_name2;
+   $config['upload_path'] = 'uploads/division';
+   $config['allowed_types'] = 'gif|jpg|png|jpeg';	
+   //$config['max_size'] = '1024'; //1 MB
+   $this->load->library('upload', $config);
+   $this->upload->initialize($config);
+   if (isset($_FILES['image2']['name'])) {
+	   if (0 < $_FILES['image2']['error']) {
+		   echo 'Error during file upload' . $_FILES['image2']['error'];
+	   } else {
+		   if (file_exists('uploads/division/'.$new_name2)) {
+			   //echo 'File already exists : uploads/contactus/'.$new_name;
+			   $image2=$image22;
+		   } else {
+			   
+			   if (!$this->upload->do_upload('image2')) {
+				   //echo $this->upload->display_errors();
+			   } else {
+				   //echo 'File successfully uploaded : uploads/' . $_FILES['file']['name'];
+				   $image2=$image22;
+			   }
+			   $image2=$image22;
+
+		   }
+	   }
+	   $image2=$new_name2;
+
+   } else {
+	   //echo 'Please choose a file';
+	   $image2=$image22;
+
+   }
+
+
+
+	$title=$this->input->post('title');
+	//die;
+
+	 $shortdesc=$this->input->post('shortdesc');
+	$longdesc=$this->input->post('longdesc');
+	//  $title4=$this->input->post('title4');
+	//$link=$this->input->post('link');
+	 //$description=$this->input->post('description');
+	//  $alttag1=$this->input->post('alttag1');
+	 $status=$this->input->post('status');
+	//  $showinfront=$this->input->post('showinfront');
+	  
+	 $data = array(
+		 //'description' =>"$description",
+		//  'showinfront'=>"$showinfront",
+		 'title'=>"$title",
+		 'shortdesc'=>"$shortdesc",
+		 'longdesc'=>"$longdesc",
+		//  'title4'=>"$title4",
+		 'picture'=>$image1,
+		 'picture2'=>$image2,
+		'active'=>"$status"		
+	  );
+	//print_r($data);
+	//die;
+	  $id=$this->input->post('id'); 
+	  $this->db2->where('id',$id);
+	   $this->db2->update('division',$data);
+	   //$this->db2->insert('problems', $data);
+	   
+	   //$this->db2->insert('blogcontents', $data);
+	  echo $this->db2->last_query();
+	  die;
+	  $this->session->set_flashdata('flash_msgbg', 'Edited Successfully');
+	  //echo ($this->db2->affected_rows() != 1) ? 'Error in Adding Blog' : '<b>Blog Added Successfully</b>';
+
+
+
+}
+
+
+
+
 
 
 
@@ -6281,6 +6484,53 @@ public function listblog(){
 	$this->load->view('admin/listblog',$data);
 }
 
+public function listdivision(){
+	if( $this->session->has_userdata('username')) {					
+	}
+	else{
+	   redirect("admin/login");
+	}
+	$this->load->model('Servicesmodel');
+	$config = array();
+	$config["base_url"] = base_url() . "Admin/listdivision";
+	//$config["total_rows"] = $this->sm->get_countsolutions();
+	$config["total_rows"]=$this->sm->get_countdivision();
+	$config["per_page"] = 2;
+	$config["uri_segment"] = 3;
+	$config['full_tag_open'] = '<ul class="pagination">';
+    $config['full_tag_close'] = '</ul>';
+    $config['attributes'] = ['class' => 'page-link'];
+    $config['first_link'] = false;
+    $config['last_link'] = false;
+    $config['first_tag_open'] = '<li class="page-item">';
+    $config['first_tag_close'] = '</li>';
+    $config['prev_link'] = '&laquo';
+    $config['prev_tag_open'] = '<li class="page-item">';
+    $config['prev_tag_close'] = '</li>';
+    $config['next_link'] = '&raquo';
+    $config['next_tag_open'] = '<li class="page-item">';
+    $config['next_tag_close'] = '</li>';
+    $config['last_tag_open'] = '<li class="page-item">';
+    $config['last_tag_close'] = '</li>';
+    $config['cur_tag_open'] = '<li class="page-item active"><a href="#" class="page-link">';
+    $config['cur_tag_close'] = '<span class="sr-only">(current)</span></a></li>';
+    $config['num_tag_open'] = '<li class="page-item">';
+    $config['num_tag_close'] = '</li>';
+	$this->pagination->initialize($config);
+	$page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+	$data["links"] = $this->pagination->create_links();
+	$data['result1']=$this->sm->get_divisionadmin($config["per_page"], $page);
+	//print_r($data['result']);
+	//die;	
+	//$data['result']=$this->sm->get_solutions($config["per_page"], $page);
+	//$this->db2->from('problems');
+    //$query = $this->db2->get();
+    //$data['resultphone']=$query->row();
+	// $data['contactus']=$this->sm->get_contactus();
+	// $data['newsletter']=$this->sm->get_newsletter();
+	// $data['siteinf']=$this->sm->get_siteinf();	
+	$this->load->view('admin/listdivision',$data);
+}
 
 
 

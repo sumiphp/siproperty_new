@@ -334,7 +334,7 @@ $('#editblog').on('submit', function (e) {
     e.preventDefault();
     // alert("add");
        var file_data1 = $('#image1').prop('files')[0];
-       
+       var file_data2 = $('#image2').prop('files')[0];
         var title=$('#title').val();
         //alert(title);
         var status=$("#status").val();                
@@ -343,6 +343,7 @@ $('#editblog').on('submit', function (e) {
         var id=$('#id').val();
         var form_data = new FormData();
         form_data.append('image1', file_data1);
+        form_data.append('image2', file_data2);
         form_data.append('shortdesc',shortdesc);
         form_data.append('id',id);
       

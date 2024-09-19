@@ -149,6 +149,22 @@
                         <span class="nav-text">Testimonial</span>
                       </a>
                     </li>
+
+                    <!--li>
+                      <a href="<?php //echo base_url().'Admin/adddivision'?>" >
+                        <span class="nav-text">Add Division</span>
+                      </a>
+                    </li-->
+                    <li>
+                      <a href="<?php echo base_url().'Admin/listdivision'?>" >
+                        <span class="nav-text">Division</span>
+                      </a>
+                    </li>
+
+
+
+
+
                   </ul>
                 </li>
 

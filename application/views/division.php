@@ -394,38 +394,55 @@
         <section class="blog-list sec-pad-2">
             <div class="auto-container">
                 <div class="row clearfix">
-                <?php foreach($blog as $blg){?> 
+                <?php 
+                
+                $i=0;
+                
+                foreach($division as $div){
+                    
+                    
+                    ?> 
                     <div class="col-lg-6 col-md-12 col-sm-12 news-block">
                         <div class="news-block-two wow fadeInLeft animated animated" data-wow-delay="00ms" data-wow-duration="1500ms">
                             <div class="inner-box align-items-center">
                                 <div class="image-box">
-                                    <figure class="image"><a href="<?php echo base_url().'Home/blogdetails/'.$blg['blogid'];?>"><img src="<?php echo base_url().'uploads/blog/'.$blg['picture'];?>" alt=""></a></figure>
-                                    <a href="<?php echo base_url().'Home/blogdetails/'.$blg['blogid'];?>" class="feature">Featured</a>
+                                    <figure class="image"><a href="<?php echo base_url().'Home/divdetails/'.$div['id'];?>"><img src="<?php echo base_url().'uploads/division/'.$div['picture'];?>" alt=""></a></figure>
+                                    <?php if($i==0){?>
+                                    <a href="<?php echo base_url().'Home/divdetails/'.$div['id'];?>" class="feature">Turn key</a>
+                                    <?php } else {?>
+                                        <a href="<?php echo base_url().'Home/divdetails/'.$div['id'];?>" class="feature">4th Dimension</a>
+
+                                        <?php } ?>
                                 </div>
                                 <div class="content-box">
-                                    <h4><a href="<?php echo base_url().'Home/blogdetails/'.$blg['blogid'];?>"><?php echo $blg['blogtitle'];?></a></h4>
-                                    <ul class="post-info clearfix">
+                                    <h4><a href="<?php echo base_url().'Home/divdetails/'.$div['id'];?>"><?php echo $div['title'];?></a></h4>
+                                    <!--ul class="post-info clearfix">
                                         <li class="author-box">
-                                            <figure class="author-thumb"><img src="<?php echo base_url().'siproperty/assets/images/resource/testimonial-1.jpg';?>" alt=""></figure>
-                                            <h5><a href="<?php echo base_url().'Home/blogdetails/'.$blg['blogid'];?>"><?php echo $blg['addedby'];?></a></h5>
+                                            <figure class="author-thumb"><img src="<?php //echo base_url().'siproperty/assets/images/resource/testimonial-1.jpg';?>" alt=""></figure>
+                                            <h5><a href="<?php //echo base_url().'Home/divdetails/'.$blg['blogid'];?>"><?php //echo $blg['addedby'];?></a></h5>
                                         </li>
                                         <li><?php 
-                                        $date=$blg['date'];
-                                        $datedt=explode("-",$date);
+                                        //$date=$blg['date'];
+                                        //$datedt=explode("-",$date);
                                         
-                                        echo $month = date('d',strtotime($date));?> <?php echo $month = date('M',strtotime($date));?>, <?php echo $datedt[0];?>
+                                        //echo $month = date('d',strtotime($date));?> <?php //echo $month = date('M',strtotime($date));?>, <?php echo $datedt[0];?>
 
 </li>
-                                    </ul>
-                                    <p><?php echo $blg['blogshortdesc'];?></p>
+                                    </ul-->
+                                    <p><?php echo $div['shortdesc'];?></p>
                                     <div class="btn-box">
-                                        <a href="<?php echo base_url().'Home/blogdetails/'.$blg['blogid'];?>" class="theme-btn btn-two">See Details</a>
+                                        <a href="<?php echo base_url().'Home/divdetails/'.$div['id'];?>" class="theme-btn btn-two">See Details</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <?php } ?>
+                    <?php 
+                
+                $i++;
+                
+                
+                } ?>
                     <!--div class="col-lg-6 col-md-12 col-sm-12 news-block">
                         <div class="news-block-two wow fadeInRight animated animated" data-wow-delay="00ms" data-wow-duration="1500ms">
                             <div class="inner-box align-items-center">

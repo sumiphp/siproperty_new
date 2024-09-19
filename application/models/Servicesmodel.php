@@ -434,6 +434,23 @@ function get_faqadmin($limit,$start){
         return $query->result_array(); 
         }
 
+        function get_countdivision(){
+            $this->db2->select('*');
+            $this->db2->from('division');
+            $query = $this->db2->get();
+            return $rowcount = $query->num_rows();
+    
+    
+        }
+
+        function get_divisionadmin($limit,$start){
+            $this->db2->limit($limit,$start);
+            $this->db2->select('*');
+            $this->db2->from('division');
+            $query = $this->db2->get();
+            return $query->result_array(); 
+            }
+
 function get_servicedetals($serid){
     //$this->db2->limit($limit,$start);
     $this->db2->where('categoryid',$serid);

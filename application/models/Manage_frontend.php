@@ -1499,7 +1499,19 @@ function blogdetails($id){
     return $query->row();
 
 }
+function divdetails($id){
 
+    $this->db->where('id',$id);
+    //$this->db->where('status',0);
+    $this->db->select('*');
+    $this->db->from('division');
+    $query = $this->db->get();
+    //echo $this->db->last_query();
+    //die;
+
+    return $query->row();
+
+}
 
 
 
@@ -1626,6 +1638,30 @@ function get_amlist(){
 }
 
 
+function get_countdiv(){
+
+    //$this->db->where('project_status',0);
+    $this->db->where('active',1);
+    $this->db->select('*');
+    $this->db->from('division');
+    $query = $this->db->get();
+    return $rowcount = $query->num_rows();
+
+
+
+
+}
+
+
+function get_div($limit,$start){
+    $this->db->limit($limit,$start);
+    //$this->db->where('project_status',0);
+    $this->db->where('active',1);
+    $this->db->select('*');
+    $this->db->from('division');
+    $query = $this->db->get();
+    return $query->result_array();
+}
 
 
 

@@ -14,7 +14,7 @@ class Home extends CI_Controller {
         $this->load->model('Manage_frontend', 'frontend');
         
         $this->load->library('cart');
-        $this->load->model('product');
+        //$this->load->model('product');
         $this->load->library('email');
         $this->load->library("pagination");
         //$this->load->model('checkout');
@@ -689,7 +689,7 @@ public function division(){
         $config = array();
         $config["base_url"] = base_url() . "Home/division";
         //$config["total_rows"] = $this->sm->get_countsolutions();
-        $config["total_rows"]=$this->frontend->get_countblogs();
+        $config["total_rows"]=$this->frontend->get_countdiv();
         $config["per_page"] = 10;
         $config["uri_segment"] = 3;
         $config['full_tag_open'] = '<ul class="pagination">';
@@ -714,19 +714,37 @@ public function division(){
         $this->pagination->initialize($config);
         $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
         $this->data["links"] = $this->pagination->create_links();
- $this->data['blog'] = $this->frontend->get_Blogs($config["per_page"],$page);
+ $this->data['division'] = $this->frontend->get_div($config["per_page"],$page);
         //$this->data['blog'] = $this->frontend->getBlogs($blog_slug);
         //print_r($this->data['blog']);
         //die;
         $this->data['homecare'] = $this->frontend->gethomecare($blog_slug);
         $this->data['settings']= $this->frontend->settings();
         $this->data['homepagedetails2']= $this->frontend->homepagedetails2();
+        $this->data['blog'] = $this->frontend->get_Blogs($config["per_page"],$page);
     $this->load->view('division.php',$this->data);
 }
 
 
 
-
+public function divdetails(){
+    $blog_slug='';
+        $this->data['contactus'] = $this->frontend->getcontactus($blog_slug);
+        $this->data['blog'] = $this->frontend->getBlogs($blog_slug);
+        //print_r($this->data['blog']);
+        //die;
+        $this->data['homecare'] = $this->frontend->gethomecare($blog_slug);
+        $this->data['settings']= $this->frontend->settings();
+        $this->data['homepagedetails2']= $this->frontend->homepagedetails2();
+        $this->data['aboutus']= $this->frontend->get_aboutus();
+        //$id=1;
+        $this->data['pd']= $this->frontend->propertydetails($id);
+        $this->data['pd1']= $this->frontend->homeprojects1($id);
+        $id=$this->uri->segment(3);
+        $this->data['pd2']= $this->frontend->divdetails($id);
+        $this->data['blogdesc'] = $this->frontend->getBlogsdesc($blog_slug);
+    $this->load->view('div-details.php',$this->data);
+}
 
 
 

@@ -140,7 +140,8 @@
                                                 <!--li><a href="<?php //echo base_url().'Home/compareproperties';?>">Compare Properties</a></li-->
                                             </ul>
                                         </li> 
-                                        <li><a href="<?php echo base_url().'Home/aboutus';?>"><span>About Us</span></a></li>  
+                                        <li><a href="<?php echo base_url().'Home/aboutus';?>"><span>About Us</span></a></li>
+                                        <li><a href="<?php echo base_url().'Home/division';?>"><span>Division</span></a></li>  
                                         <!--li><a href="<?php //echo base_url().'Home/propertylist';?>"><span>Projects</span></a></li>
                                         <li><a href="<?php //echo base_url().'Home/services';?>"><span>Services</span></a></li-->
                                         <li><a href="<?php echo base_url().'Home/blog';?>"><span>Blog</span></a></li> 
